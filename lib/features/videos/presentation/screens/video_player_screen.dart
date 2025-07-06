@@ -120,3 +120,4 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     return const SizedBox.shrink();
   }
 }
+  

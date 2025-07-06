@@ -5,6 +5,7 @@ import 'package:trogan_learning_app/models/module.dart';
 class ModuleCard extends StatelessWidget {
   final Module module;
 
+
   const ModuleCard({super.key, required this.module});
 
   @override
