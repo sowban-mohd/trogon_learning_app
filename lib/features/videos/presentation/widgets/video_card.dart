@@ -23,21 +23,21 @@ class VideoCard extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 8),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: ColorPalette.moduleCardColor,
+          color: ColorPalette.videoCardColor,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(
           children: [
             Icon(
               Icons.play_circle_outline,
-              color: ColorPalette.onModule,
+              color: ColorPalette.onVideoCard,
               size: 35,
             ),
             const SizedBox(width: 12),
             Container(
               width: 1,
               height: double.infinity,
-              color: ColorPalette.onModule,
+              color: ColorPalette.onVideoCard,
             ),
             const SizedBox(width: 12),
             Expanded(
@@ -48,7 +48,7 @@ class VideoCard extends StatelessWidget {
                   Text(
                     video.title,
                     style: GoogleFonts.nunito(
-                      color: ColorPalette.onModule,
+                      color: ColorPalette.onVideoCard,
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
@@ -57,7 +57,7 @@ class VideoCard extends StatelessWidget {
                   Text(
                     video.description,
                     style: GoogleFonts.nunito(
-                      color: ColorPalette.onModule,
+                      color: ColorPalette.onVideoCard,
                       fontSize: 12,
                     ),
                     overflow: TextOverflow.ellipsis,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trogan_learning_app/core/color_palette.dart';
 import 'package:trogan_learning_app/core/utils.dart';
 import 'package:trogan_learning_app/models/subject.dart';
 import 'package:trogan_learning_app/features/modules/presentation/screens/modules_page.dart';
@@ -54,7 +55,7 @@ class SubjectCard extends StatelessWidget {
                             : deviceType == DeviceType.desktop
                             ? 14
                             : 18,
-                        color: Colors.white,
+                        color: ColorPalette.onSurface,
                       ),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,

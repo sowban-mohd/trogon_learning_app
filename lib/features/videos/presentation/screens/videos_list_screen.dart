@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trogan_learning_app/core/color_palette.dart';
 import 'package:trogan_learning_app/core/loader.dart';
 import 'package:trogan_learning_app/core/utils.dart';
 import 'package:trogan_learning_app/features/videos/controller/video_cubit.dart';
@@ -45,7 +46,11 @@ class _VideosListScreenState extends State<VideosListScreen> {
           ),
           bottom: const PreferredSize(
             preferredSize: Size.fromHeight(1.0),
-            child: Divider(height: 1, thickness: 1, color: Colors.white24),
+            child: Divider(
+              height: 1,
+              thickness: 1,
+              color: ColorPalette.dividerColor,
+            ),
           ),
         ),
       ),
@@ -67,16 +72,14 @@ class _VideosListScreenState extends State<VideosListScreen> {
                 child: Column(
                   children: [
                     const SizedBox(height: 15),
-
                     Text(
                       widget.moduleName,
                       style: GoogleFonts.nunito(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: ColorPalette.onSurface,
                       ),
                     ),
-
                     const SizedBox(height: 30),
                     Expanded(
                       child: ListView.builder(
