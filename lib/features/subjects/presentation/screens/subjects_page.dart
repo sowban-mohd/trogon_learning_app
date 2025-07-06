@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trogan_learning_app/core/loader.dart';
 import 'package:trogan_learning_app/core/utils.dart';
 import 'package:trogan_learning_app/features/subjects/controller/subjects_cubit.dart';
 import 'package:trogan_learning_app/models/subject.dart';
@@ -39,7 +39,7 @@ class _SubjectsPageState extends State<SubjectsPage> {
             child: Divider(
         height: 1,
         thickness: 1,
-        color: Colors.white24, // subtle white line
+        color: Colors.white24,
             ),
           ),
         ),
@@ -48,16 +48,12 @@ class _SubjectsPageState extends State<SubjectsPage> {
         child: BlocConsumer<SubjectsCubit, SubjectsState>(
           listener: (context, state) {
             if (state is SubjectsError) {
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(SnackBar(content: Text(state.message)));
+           Utils.showSnackBar(context, message: state.message);
             }
           },
           builder: (context, state) {
             if (state is SubjectsLoading) {
-              return const Center(
-                child: SpinKitCubeGrid(color: Colors.yellow, size: 50.0),
-              );
+              return const Loader();
             } else if (state is SubjectsSuccess) {
               final List<Subject> subjects = state.subjects;
               final deviceType = Utils.getDeviceType(context);

@@ -13,4 +13,10 @@ class Utils {
       return DeviceType.mobile;
     }
   }
+
+  static showSnackBar(context, {required String message}) {
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
+  }
 }

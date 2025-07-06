@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trogan_learning_app/core/loader.dart';
 import 'package:trogan_learning_app/core/utils.dart';
 import 'package:trogan_learning_app/features/modules/controller/modules_cubit.dart';
-import 'package:trogan_learning_app/models/module.dart';
 import 'package:trogan_learning_app/features/modules/presentation/widgets/module_card.dart';
+import 'package:trogan_learning_app/models/module.dart';
 
 class ModulesPage extends StatefulWidget {
   final String subjectName;
@@ -57,16 +57,12 @@ class _ModulesPageState extends State<ModulesPage> {
         child: BlocConsumer<ModulesCubit, ModulesState>(
           listener: (context, state) {
             if (state is ModulesError) {
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(SnackBar(content: Text(state.message)));
+             Utils.showSnackBar(context, message: state.message);
             }
           },
           builder: (context, state) {
             if (state is ModulesLoading) {
-              return const Center(
-                child: SpinKitCubeGrid(color: Colors.yellow, size: 50.0),
-              );
+              return const Loader();
             } else if (state is ModulesSuccess) {
               final List<Module> modules = state.modules;
 

@@ -8,26 +8,24 @@ class LearningAppRepository {
   LearningAppRepository(this.dataSource);
   Future<List<Subject>> fetchSubjects() async {
     try {
-    return await dataSource.fetchSubjects();
-    } catch (e){
+      return await dataSource.fetchSubjects();
+    } catch (e) {
       throw e.toString();
     }
   }
-    Future<List<Module>> fetchModules(int subjectId) async {
+
+  Future<List<Module>> fetchModules(int subjectId) async {
     try {
-    return await dataSource.fetchModules(subjectId);
-    } catch (e){
+      return await dataSource.fetchModules(subjectId);
+    } catch (e) {
       throw e.toString();
     }
-
-    
   }
 
-  Future<List<Video>> fetchVideo(int moduleId) async {
+  Future<List<Video>> fetchVideos(int moduleId) async {
     try {
-      print('repository done');
-    return await dataSource.fetchVideo(moduleId);
-    } catch (e){
+      return await dataSource.fetchVideos(moduleId);
+    } catch (e) {
       throw e.toString();
     }
   }

@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trogan_learning_app/features/modules/controller/modules_cubit.dart';
@@ -10,16 +9,13 @@ import 'package:trogan_learning_app/features/subjects/presentation/screens/subje
 void main() {
   initDependencies();
   runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (_) => MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => serviceLocator<SubjectsCubit>()),
-          BlocProvider(create: (_) => serviceLocator<ModulesCubit>()),
-          BlocProvider(create: (_) => serviceLocator<VideoCubit>())
-        ],
-        child: const LearningApp(),
-      ),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => serviceLocator<SubjectsCubit>()),
+        BlocProvider(create: (_) => serviceLocator<ModulesCubit>()),
+        BlocProvider(create: (_) => serviceLocator<VideoCubit>()),
+      ],
+      child: const LearningApp(),
     ),
   );
 }
@@ -30,8 +26,6 @@ class LearningApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
       title: 'Learning App',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,

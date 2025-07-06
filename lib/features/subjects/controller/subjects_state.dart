@@ -1,7 +1,4 @@
-
-
 part of 'subjects_cubit.dart';
-
 
 sealed class SubjectsState {}
 

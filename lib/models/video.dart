@@ -1,14 +1,13 @@
-enum VideoType { youtube, vimeo }
 
 class Video {
   final String url;
-  final VideoType type;
+  final String videoType;
   final String title;
   final String description;
 
   Video({
     required this.url,
-    required this.type,
+    required this.videoType,
     required this.title,
     required this.description,
   });
@@ -16,10 +15,10 @@ class Video {
 
   factory Video.fromJson(Map<String, dynamic> json) {
     return Video(
-      url: json['url'] as String,
-      type: json['type'] == 'YouTube' ? VideoType.youtube : VideoType.vimeo,
-      title: json['title'] as String,
-      description: json['description'] as String,
+      url: json['video_url'] ?? '',
+      videoType: json['video_type'] ?? '',
+      title: json['title'] ?? '',
+      description: json['description'] ?? '',
     );
   }
 }
