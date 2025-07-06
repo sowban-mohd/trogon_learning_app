@@ -2,28 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:trogan_learning_app/features/modules/controller/modules_cubit.dart';
-import 'package:trogan_learning_app/features/modules/presentation/widgets/module_card.dart';
-import 'package:trogan_learning_app/models/module.dart';
+import 'package:trogan_learning_app/features/videos/controller/video_cubit.dart';
+import 'package:trogan_learning_app/features/videos/presentation/widgets/video_card.dart';
+import 'package:trogan_learning_app/models/video.dart';
 
-class ModulesPage extends StatefulWidget {
-  final String subjectName;
-  final int subjectId;
-  const ModulesPage({
-    super.key,
-    required this.subjectName,
-    required this.subjectId,
-  });
+class VideosListScreen extends StatefulWidget {
+  final String moduleName;
+  final int moduleId;
+  const VideosListScreen({super.key, required this.moduleName,required  this.moduleId});
 
   @override
-  State<ModulesPage> createState() => _ModulesPageState();
+  State<VideosListScreen> createState() => _VideosListScreenState();
 }
 
-class _ModulesPageState extends State<ModulesPage> {
-  @override
+class _VideosListScreenState extends State<VideosListScreen> {
+@override
   void initState() {
     super.initState();
-    context.read<ModulesCubit>().fetchModules(widget.subjectId);
+    context.read<VideoCubit>().fetchVideos(widget.moduleId);
   }
 
   @override
@@ -53,53 +49,44 @@ class _ModulesPageState extends State<ModulesPage> {
         ),
       ),
       body: SafeArea(
-        child: BlocConsumer<ModulesCubit, ModulesState>(
+        child: BlocConsumer<VideoCubit, VideoState>(
           listener: (context, state) {
-            if (state is ModulesError) {
+            if (state is VideoError) {
               ScaffoldMessenger.of(
                 context,
               ).showSnackBar(SnackBar(content: Text(state.message)));
             }
           },
           builder: (context, state) {
-            if (state is ModulesLoading) {
+            if (state is VideoLoading) {
               return const Center(
                 child: SpinKitCubeGrid(color: Colors.yellow, size: 50.0),
               );
-            } else if (state is ModulesSuccess) {
-              final List<Module> modules = state.modules;
+            } else if (state is VideoSuccess) {
+              final List<Video> videos = state.videos;
 
               return Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
                     const SizedBox(height: 15),
-                    Column(
-                      children: [
+                 
                          Text(
-                          widget.subjectName,
+                          widget.moduleName,
                           style: GoogleFonts.nunito(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
-                        Text(
-                          'Modules',
-                          style: GoogleFonts.nunito(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
+                       
+                      
                     const SizedBox(height: 30),
                     Expanded(
                       child: ListView.builder(
-                        itemCount: modules.length,
+                        itemCount: videos.length,
                         itemBuilder: (context, index) {
-                          return ModuleCard(module: modules[index]);
+                          return VideoCard(video: videos[index]);
                         },
                       ),
                     ),

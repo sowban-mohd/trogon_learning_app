@@ -11,10 +11,13 @@ Future<void> fetchVideos(int moduleId) async {
   emit(VideoLoading());
   try {
   final videosList = await repository.fetchVideo(moduleId);
-  print('boc done too');
-  VideoSuccess(video: videosList[moduleId]);
+if (moduleId > 0 && moduleId <= videosList.length) {
+  emit(VideoSuccess(videos: videosList));
+} else {
+  emit(VideoError("Invalid module ID"));
+}
   } catch (e){
-    VideoError(e.toString());
+    emit(VideoError(e.toString()));
   }
 
 }  

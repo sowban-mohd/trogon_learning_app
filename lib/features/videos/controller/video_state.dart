@@ -12,6 +12,6 @@ class VideoError extends VideoState {
 }
 
 class VideoSuccess extends VideoState {
-  final Video video;
-  VideoSuccess({required this.video});
+  final List<Video> videos;
+  VideoSuccess({required this.videos});
 }

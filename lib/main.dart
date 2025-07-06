@@ -11,7 +11,7 @@ void main() {
   initDependencies();
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (_) => MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => serviceLocator<SubjectsCubit>()),

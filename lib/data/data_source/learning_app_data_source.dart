@@ -31,8 +31,7 @@ class LearningAppDataSource {
    Future<List<Video>> fetchVideo(int moduleId) async {
     try {
       final response = await dio.get('videos.php?module_id=$moduleId');
-      final List<dynamic> videoList = json.decode(response.data);
-      print('datasource done');
+      List<dynamic> videoList = json.decode(response.data);
       return videoList.map((video) => Video.fromJson(video)).toList();
      
     } catch (e) {

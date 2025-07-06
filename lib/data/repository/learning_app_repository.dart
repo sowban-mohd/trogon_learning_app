@@ -25,7 +25,6 @@ class LearningAppRepository {
 
   Future<List<Video>> fetchVideo(int moduleId) async {
     try {
-      print('repository done');
     return await dataSource.fetchVideo(moduleId);
     } catch (e){
       throw e.toString();
