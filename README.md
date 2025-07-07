@@ -1,8 +1,8 @@
-# 📚 Trogan Learning App
+# Trogan Learning App
 
 A simple learning app built with Flutter.
 
-## ✨ Features
+## Features
 
 - List of subjects (Physics, Chemistry, Biology, Computer Science, Mathematics)
 - Tap a subject to see related modules
@@ -10,7 +10,7 @@ A simple learning app built with Flutter.
 - Video player screen supports both YouTube and Vimeo
 - Clean architecture followed
 
-## 🧰 Tools & Packages Used
+## Tools & Packages Used
 
 - **Flutter** – UI framework
 - **flutter_bloc (Cubit)** – State management
