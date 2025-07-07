@@ -1,16 +1,19 @@
-# trogan_learning_app
+# 📚 Trogan Learning App
 
-A new Flutter project.
+A simple learning app built with Flutter.
 
-## Getting Started
+## ✨ Features
 
-This project is a starting point for a Flutter application.
+- List of subjects (Physics, Chemistry, Biology, Computer Science, Mathematics)
+- Tap a subject to see related modules
+- Tap a module to view topic-related videos
+- Video player screen supports both YouTube and Vimeo
+- Clean architecture followed
 
-A few resources to get you started if this is your first Flutter project:
+## 🧰 Tools & Packages Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Flutter** – UI framework
+- **flutter_bloc (Cubit)** – State management
+- **get_it** – Dependency injection
+- **youtube_player_flutter** – YouTube video playback
+- **flutter_vimeo** – Vimeo video playback
