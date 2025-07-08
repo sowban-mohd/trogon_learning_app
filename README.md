@@ -2,6 +2,8 @@
 
 A simple learning app built with Flutter.
 
+(Not supported in Web or Desktop due to packages'constraints)
+
 ## Features
 
 - List of subjects (Physics, Chemistry, Biology, Computer Science, Mathematics)
