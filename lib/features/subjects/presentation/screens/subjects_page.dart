@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trogan_learning_app/core/color_palette.dart';
 import 'package:trogan_learning_app/core/loader.dart';
 import 'package:trogan_learning_app/core/utils.dart';
 import 'package:trogan_learning_app/features/subjects/controller/subjects_cubit.dart';
@@ -39,7 +40,7 @@ class _SubjectsPageState extends State<SubjectsPage> {
             child: Divider(
         height: 1,
         thickness: 1,
-        color: Colors.white24,
+        color: ColorPalette.dividerColor,
             ),
           ),
         ),
@@ -68,7 +69,7 @@ class _SubjectsPageState extends State<SubjectsPage> {
                       style: GoogleFonts.nunito(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: ColorPalette.onSurface,
                       ),
                     ),
                     const SizedBox(height: 30),

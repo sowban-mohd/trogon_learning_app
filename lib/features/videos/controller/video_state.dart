@@ -13,5 +13,10 @@ class VideoError extends VideoState {
 
 class VideoSuccess extends VideoState {
   final List<Video> videos;
+
   VideoSuccess({required this.videos});
+
+  VideoSuccess copyWith({List<Video>? videos, Video? selectedVideo}) {
+    return VideoSuccess(videos: videos ?? this.videos);
+  }
 }

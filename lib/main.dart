@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trogan_learning_app/core/color_palette.dart';
 import 'package:trogan_learning_app/features/modules/controller/modules_cubit.dart';
 import 'package:trogan_learning_app/features/subjects/controller/subjects_cubit.dart';
 import 'package:trogan_learning_app/features/videos/controller/video_cubit.dart';
@@ -7,7 +9,9 @@ import 'package:trogan_learning_app/init_dependencies.dart';
 import 'package:trogan_learning_app/features/subjects/presentation/screens/subjects_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   initDependencies();
+     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(
     MultiBlocProvider(
       providers: [
@@ -30,13 +34,15 @@ class LearningApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black,
-        cardColor: Colors.grey[900],
+        scaffoldBackgroundColor: ColorPalette.backgroundColor,
+        cardColor: ColorPalette.backgroundColor,
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.black,
-          foregroundColor: Colors.white,
+          backgroundColor: ColorPalette.backgroundColor,
+          foregroundColor: ColorPalette.onSurface,
         ),
-        textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: ColorPalette.onSurface),
+        ),
       ),
       home: SubjectsPage(),
     );

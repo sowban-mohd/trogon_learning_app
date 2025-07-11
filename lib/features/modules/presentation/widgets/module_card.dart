@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trogan_learning_app/core/color_palette.dart';
 import 'package:trogan_learning_app/features/videos/presentation/screens/videos_list_screen.dart';
 import 'package:trogan_learning_app/models/module.dart';
 
@@ -13,7 +14,7 @@ class ModuleCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFF2E3192), Color(0xFF1BFFFF)],
+          colors: [ColorPalette.gradient1, ColorPalette.graident2],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -36,7 +37,7 @@ class ModuleCard extends StatelessWidget {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w600,
-            color: Colors.white,
+            color: ColorPalette.onSurface,
           ),
         ),
         subtitle: Text(

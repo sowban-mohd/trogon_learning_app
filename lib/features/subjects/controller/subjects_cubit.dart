@@ -10,8 +10,15 @@ class SubjectsCubit extends Cubit<SubjectsState> {
 
   Future<void> fetchSubjects() async {
     emit(SubjectsLoading());
+
     try {
-      final List<Subject> subjects = await repository.fetchSubjects();
+      final minimumDelay = Future.delayed(Duration(seconds: 1));
+      final fetchData = repository.fetchSubjects();
+
+      final results = await Future.wait([minimumDelay, fetchData]);
+
+      final List<Subject> subjects = results[1] as List<Subject>;
+
       emit(SubjectsSuccess(subjects));
     } catch (e) {
       emit(SubjectsError(e.toString()));
